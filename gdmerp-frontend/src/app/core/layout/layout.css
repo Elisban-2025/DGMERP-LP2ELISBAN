@@ -1,0 +1,13 @@
+.body { display: flex; min-height: calc(100vh - 60px); }
+.header { background-color: #3f51b5; color: white; padding: 0 20px; height: 60px; display: flex; align-items: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.header h1 { margin: 0; font-size: 1.4rem; display: flex; align-items: center; gap: 10px; }
+.home-link { display: inline-flex; align-items: center; text-decoration: none; color: inherit; }
+
+.sidebar { width: 240px; background-color: #f4f5f7; border-right: 1px solid #e0e0e0; padding: 20px 0; height: 100vh; }
+.menu-section { margin-bottom: 24px; }
+.menu-title { display: block; padding: 0 20px 8px 20px; font-size: 0.75rem; color: #757575; font-weight: bold; text-transform: uppercase; letter-spacing: 0.05em; }
+.sidebar a { display: block; padding: 10px 20px 10px 30px; text-decoration: none; color: #333; font-weight: 500; transition: all 0.2s; border-left: 4px solid transparent; }
+.sidebar a:hover { background-color: #e8eaf6; color: #3f51b5; }
+.sidebar a.active { font-weight: bold; color: #3f51b5; background-color: #e8eaf6; border-left: 4px solid #3f51b5; }
+
+.content { flex: 1; padding: 24px; background-color: #ffffff; }

@@ -1,0 +1,41 @@
+@if (loading()) {
+  <p>Cargando terceros...</p>
+}
+
+@if (error()) {
+  <p class="error">{{ error() }}</p>
+}
+
+<a routerLink="/crm/terceros/nuevo">Nuevo Tercero</a>
+<br><br>
+<table border="1" cellpadding="8" cellspacing="0" style="width: 100%; text-align: left;">
+  <thead style="background-color: #e9ecef;">
+    <tr>
+      <th>Documento</th>
+      <th>Razón Social</th>
+      <th>Correo</th>
+      <th>Celular</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (tercero of terceros(); track tercero.idTercero) {
+      <tr>
+        <td>{{ tercero.tipoDocumento }} {{ tercero.numeroDocumento }}</td>
+        <td>{{ tercero.razonSocial }}</td>
+        <td>{{ tercero.correo }}</td>
+        <td>{{ tercero.celularWhatsapp }}</td>
+        <td>
+          <a [routerLink]="['/crm/terceros', tercero.idTercero, 'editar']">Editar</a> | 
+          <button (click)="eliminar(tercero.idTercero!)" style="color: red; border: none; background: none; cursor: pointer; text-decoration: underline;">Eliminar</button>
+        </td>
+      </tr>
+    } @empty {
+      @if (!loading() && !error()) {
+        <tr>
+          <td colspan="5">No hay terceros registrados.</td>
+        </tr>
+      }
+    }
+  </tbody>
+</table>

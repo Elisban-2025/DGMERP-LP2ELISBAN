@@ -1,0 +1,53 @@
+<h2>{{ id() ? 'Editar' : 'Nuevo' }} Tercero</h2>
+
+<form [formGroup]="form" (ngSubmit)="guardar()">
+  @if (loading()) { <p>Cargando...</p> }
+
+  <div style="margin-bottom: 1rem;">
+    <label style="display:block; font-weight:bold;">Tipo Documento</label>
+    <input type="text" formControlName="tipoDocumento" style="padding:0.5rem; width:100%; max-width:300px;"/>
+    @if (mensajeValidacion('tipoDocumento'); as msg) { <span class="error" style="display:block;">{{ msg }}</span> }
+  </div>
+
+  <div style="margin-bottom: 1rem;">
+    <label style="display:block; font-weight:bold;">Número Documento</label>
+    <input type="text" formControlName="numeroDocumento" style="padding:0.5rem; width:100%; max-width:300px;"/>
+    @if (mensajeValidacion('numeroDocumento'); as msg) { <span class="error" style="display:block;">{{ msg }}</span> }
+  </div>
+
+  <div style="margin-bottom: 1rem;">
+    <label style="display:block; font-weight:bold;">Razón Social</label>
+    <input type="text" formControlName="razonSocial" style="padding:0.5rem; width:100%; max-width:300px;"/>
+    @if (mensajeValidacion('razonSocial'); as msg) { <span class="error" style="display:block;">{{ msg }}</span> }
+  </div>
+
+  <div style="margin-bottom: 1rem;">
+    <label style="display:block; font-weight:bold;">Nombre Comercial</label>
+    <input type="text" formControlName="nombreComercial" style="padding:0.5rem; width:100%; max-width:300px;"/>
+  </div>
+
+  <div style="margin-bottom: 1rem;">
+    <label style="display:block; font-weight:bold;">Correo</label>
+    <input type="text" formControlName="correo" style="padding:0.5rem; width:100%; max-width:300px;"/>
+    @if (mensajeValidacion('correo'); as msg) { <span class="error" style="display:block;">{{ msg }}</span> }
+  </div>
+
+  <div style="margin-bottom: 1rem;">
+    <label style="display:block; font-weight:bold;">Celular / WhatsApp</label>
+    <input type="text" formControlName="celularWhatsapp" style="padding:0.5rem; width:100%; max-width:300px;"/>
+  </div>
+
+  <div style="margin-bottom: 1rem;">
+    <label style="display:block; font-weight:bold;">Configuración</label>
+    Es Cliente (1=Sí, 0=No): <input type="number" formControlName="esCliente" style="width:50px; margin-right: 15px;" />
+    Es Proveedor (1=Sí, 0=No): <input type="number" formControlName="esProveedor" style="width:50px; margin-right: 15px;" />
+    ID Categoría: <input type="number" formControlName="idCategoria" style="width:50px;" />
+  </div>
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  <button type="submit" [disabled]="loading() || errorCarga()" style="padding: 0.5rem 1rem; cursor: pointer;">Guardar</button>
+  <button type="button" (click)="cancelar()" style="padding: 0.5rem 1rem; cursor: pointer; margin-left: 0.5rem;">Cancelar</button>
+</form>

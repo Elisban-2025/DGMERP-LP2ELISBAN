@@ -1,0 +1,4 @@
+gdmerp-frontend/node_modules/
+gdmerp-backend/target/
+*.log
+.DS_Store

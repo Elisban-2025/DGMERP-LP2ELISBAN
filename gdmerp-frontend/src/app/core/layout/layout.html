@@ -1,0 +1,29 @@
+<header class="header">
+  <h1>
+    <a routerLink="/" class="home-link">
+      <img src="favicon.ico" alt="Logo" height="30" />
+    </a>
+    GDMERP
+  </h1>
+</header>
+<div class="body">
+  <aside class="sidebar">
+    <nav>
+      <!-- Módulo CRM -->
+      <div class="menu-section">
+        <span class="menu-title">Módulo CRM</span>
+        <a routerLink="/crm/terceros" routerLinkActive="active">Terceros (Proveedores)</a>
+      </div>
+
+      <!-- Módulo Compras -->
+      <div class="menu-section">
+        <span class="menu-title">Módulo Compras</span>
+        <a routerLink="/compras/nuevo" routerLinkActive="active">Nueva Compra</a>
+        <a routerLink="/compras" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Reporte de Compras</a>
+      </div>
+    </nav>
+  </aside>
+  <main class="content">
+    <router-outlet />
+  </main>
+</div>
